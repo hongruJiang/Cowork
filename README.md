@@ -6,6 +6,8 @@
 
 # Abu (阿布)
 
+> 基于 [PM-Shawn/Abu-Cowork](https://github.com/PM-Shawn/Abu-Cowork) 按自己的想法改造了下，仅自己用嗷
+
 **你的 AI 桌面办公搭子 — 交给阿布就行啦**
 
 本地运行的 AI 桌面办公助手，灵感来自 Claude Code 的 Cowork 模式。

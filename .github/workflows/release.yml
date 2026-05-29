@@ -51,10 +51,7 @@ jobs:
 
       - name: Build Tauri app
         shell: cmd
-        env:
-          TAURI_SIGNING_PRIVATE_KEY: ""
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
-        run: npx tauri build --target x86_64-pc-windows-msvc
+        run: npx tauri build --target x86_64-pc-windows-msvc --bundles nsis
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

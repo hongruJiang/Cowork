@@ -44,7 +44,10 @@ jobs:
         env:
           TAURI_SIGNING_PRIVATE_KEY: ""
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ""
-        run: npx tauri build --target x86_64-pc-windows-msvc
+        run: |
+          # Remove Git's usr/bin from PATH — its link.exe conflicts with MSVC linker
+          export PATH=$(echo "$PATH" | tr ':' '\n' | grep -v "Git/usr/bin" | tr '\n' ':')
+          npx tauri build --target x86_64-pc-windows-msvc
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

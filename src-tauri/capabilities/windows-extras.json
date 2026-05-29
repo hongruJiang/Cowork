@@ -1,0 +1,69 @@
+{
+  "identifier": "windows-extras",
+  "description": "Windows-only fs scope extras. On Windows, user workspaces may be on non-C: drives (e.g. D:\\workspace\\Abu) that fall outside the default $HOME/** scope. All such paths were previously rejected with 'forbidden path', even after Abu's pathSafety.ts had authorised the workspace. This capability grants full-path (**) access on Windows for all agent file operations, relying on Abu's pathSafety.ts as the primary security enforcement layer. macOS is unaffected — its workspaces live under $HOME or /Volumes which are already covered by default.json.",
+  "windows": ["main"],
+  "platforms": ["windows"],
+  "permissions": [
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-file",
+      "allow": [
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-dir",
+      "allow": [
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [
+        { "path": "$DOWNLOAD/**" },
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-file",
+      "allow": [
+        { "path": "$DOWNLOAD/**" },
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [
+        { "path": "$DOWNLOAD" },
+        { "path": "$DOWNLOAD/**" },
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        { "path": "$DOWNLOAD" },
+        { "path": "$DOWNLOAD/**" },
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-stat",
+      "allow": [
+        { "path": "$DOWNLOAD/**" },
+        { "path": "**" }
+      ]
+    },
+    {
+      "identifier": "fs:allow-remove",
+      "allow": [
+        { "path": "**" }
+      ]
+    }
+  ]
+}

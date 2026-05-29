@@ -30,7 +30,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+
+      - name: Check versions
+        run: |
+          node --version
+          npm --version
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
@@ -44,7 +48,9 @@ jobs:
           shared-key: ${{ matrix.target }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+        env:
+          HUSKY: 0
 
       - name: Setup embedded Python runtime
         run: bash scripts/setup-python-runtime.sh
